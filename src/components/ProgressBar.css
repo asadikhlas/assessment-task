@@ -1,0 +1,21 @@
+.progress-bar {
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #EAEAEA;
+  position: relative;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.65s ease;
+}
+
+.progress-bar--primary .progress-bar__fill {
+  background: #306FDC;
+}
+
+.progress-bar--secondary .progress-bar__fill {
+  background: #9080FF;
+}

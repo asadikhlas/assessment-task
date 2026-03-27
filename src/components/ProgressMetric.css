@@ -1,0 +1,107 @@
+.progress-metric {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto auto;
+  width: 100%;
+  row-gap: 5px;
+}
+
+.progress-metric__top-row {
+  display: grid;
+  grid-template-columns: auto 28px 1fr;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.progress-metric__label {
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1.02;
+  color: #323233;
+  text-align: left;
+}
+
+.progress-metric__toggle {
+  width: 30px;
+  height: 18px;
+  border: none;
+  border-radius: 999px;
+  background: #d8d8d8;
+  position: relative;
+  padding: 0;
+  cursor: default;
+  flex: 0 0 auto;
+}
+
+.progress-metric__toggle--on {
+  background: #46afb8;
+}
+
+.progress-metric__toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f6f6f6;
+  transition: transform 0.25s ease;
+}
+
+.progress-metric__toggle--on .progress-metric__toggle-knob {
+  transform: translateX(12px);
+}
+
+.progress-metric__bars {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-metric__inner-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.progress-metric__bar {
+  flex: 0 0 auto;
+}
+
+.progress-metric__bar--primary {
+  width: 60px;
+}
+
+.progress-metric__bar--secondary {
+  width: 60px;
+}
+
+.progress-metric__score,
+.progress-metric__percent {
+  font-size: 12px;
+  color: #323233;
+  white-space: nowrap;
+}
+
+.progress-metric__percent {
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .progress-metric__top-row {
+    grid-template-columns: 1fr 28px;
+    row-gap: 8px;
+  }
+
+  .progress-metric__bars {
+    grid-column: 1 / -1;
+  }
+}
