@@ -68,3 +68,41 @@
     flex-wrap: wrap;
   }
 }
+
+/* Reuse same base style */
+.clear-controls-button,
+.retry-button {
+  height: 33px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 40px;
+  background: #4788FF;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+/* Hover / active (to make it feel intentional, not static) */
+.clear-controls-button:hover,
+.retry-button:hover {
+  background: #3a74e6;
+}
+
+.clear-controls-button:active,
+.retry-button:active {
+  transform: scale(0.96);
+}
+
+/* Optional: spacing tweaks for layout */
+.clear-controls-button {
+  margin-left: 8px;
+}
+
+.retry-button {
+  margin-top: 12px;
+}

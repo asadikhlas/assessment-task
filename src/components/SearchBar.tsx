@@ -9,7 +9,8 @@ interface SearchBarProps {
 export function SearchBar({ value, onChange }: SearchBarProps) {
   return (
     <label className='search-bar'>
-      <img src={searchIcon} className='search-bar__icon' alt='' />
+      <span className='sr-only'>Search assessments</span>
+      <img src={searchIcon} className='search-bar__icon' alt='' aria-hidden='true' />
       <input
         aria-label='Search assessments'
         type='search'

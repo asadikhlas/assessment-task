@@ -9,8 +9,17 @@ function MetricSkeleton({ single = false }: { single?: boolean }) {
     <div className='skeleton-metric'>
       <div className='skeleton-metric__row'>
         <div className='skeleton-metric__label'>
-          <div className='skeleton skeleton-metric__label-line skeleton-metric__label-line--one' />
-          <div className='skeleton skeleton-metric__label-line skeleton-metric__label-line--two' />
+          {single ? (
+            <>
+              <div className='skeleton skeleton-metric__label-line skeleton-metric__label-line--one' />
+              <div className='skeleton skeleton-metric__label-line skeleton-metric__label-line--two' />
+            </>
+          ) : (
+            <>
+              <div className='skeleton skeleton-metric__label-line skeleton-metric__label-line--two' />
+              <div className='skeleton skeleton-metric__label-line skeleton-metric__label-line--one' />
+            </>
+          )}
         </div>
 
         <div className='skeleton skeleton-metric__toggle' />
@@ -106,7 +115,7 @@ export function SkeletonCard({ singleMetric = false }: SkeletonCardProps) {
                 index > 0 ? 'skeleton-card__metric-cell--bordered' : ''
               }`}
             >
-              <MetricSkeleton />
+              <MetricSkeleton single={index === 0} />
             </div>
           ))}
 

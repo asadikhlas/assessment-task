@@ -34,7 +34,7 @@
   background: #d8d8d8;
   position: relative;
   padding: 0;
-  cursor: default;
+  cursor: auto;
   flex: 0 0 auto;
 }
 

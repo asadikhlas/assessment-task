@@ -23,7 +23,7 @@ export function HeaderBar() {
           className='header-bar__guide'
           aria-label='Open lessons and formative quizzes guide'
         >
-          <img src={BulbIcon} alt='' />
+          <img src={BulbIcon} alt='' aria-hidden='true' />
           <span className='header-bar__guide-text'>
             Lessons &amp; Formative Quizzes Guide
           </span>

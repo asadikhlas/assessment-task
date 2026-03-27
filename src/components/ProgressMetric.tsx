@@ -11,18 +11,26 @@ interface ProgressMetricProps {
 export function ProgressMetric({ item }: ProgressMetricProps) {
   const primaryPercent = toPercent(item.completed, item.total);
   const secondaryPercent = item.secondaryPercent ?? 0;
+  const isEnabled = item.enabled !== false;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const [animatedPrimary, setAnimatedPrimary] = useState(0);
   const [animatedSecondary, setAnimatedSecondary] = useState(0);
 
   useEffect(() => {
+    if (reducedMotion) {
+      setAnimatedPrimary(primaryPercent);
+      setAnimatedSecondary(secondaryPercent);
+      return;
+    }
+
     const id = window.requestAnimationFrame(() => {
       setAnimatedPrimary(primaryPercent);
       setAnimatedSecondary(secondaryPercent);
     });
 
     return () => window.cancelAnimationFrame(id);
-  }, [primaryPercent, secondaryPercent]);
+  }, [primaryPercent, reducedMotion, secondaryPercent]);
 
   const labelLines = item.label.split('\n');
 
@@ -35,16 +43,15 @@ export function ProgressMetric({ item }: ProgressMetricProps) {
           ))}
         </div>
 
-        <button
-          type='button'
+        <div
           className={`progress-metric__toggle ${
-            item.enabled !== false ? 'progress-metric__toggle--on' : ''
+            isEnabled ? 'progress-metric__toggle--on' : ''
           }`}
-          aria-label={`${item.label.replace(/\n/g, ' ')} toggle`}
-          aria-pressed={item.enabled !== false}
+          role='img'
+          aria-label={`${item.label.replace(/\n/g, ' ')} ${isEnabled ? 'enabled' : 'disabled'}`}
         >
           <span className='progress-metric__toggle-knob' />
-        </button>
+        </div>
 
         <div className='progress-metric__bars'>
           <div className='progress-metric__inner-container'>

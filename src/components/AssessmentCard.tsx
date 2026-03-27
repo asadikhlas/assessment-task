@@ -15,19 +15,22 @@ export function AssessmentCard({ assessment }: AssessmentCardProps) {
     <article className='assessment-card'>
       <div className='assessment-card__top-row'>
         <div className='assessment-card__title-block'>
-          <img src={DuplicateIcon} alt='duplicate-icon' />
+          <img src={DuplicateIcon} alt='' aria-hidden='true' />
 
           <div className='assessment-card__title-content'>
             <div className='assessment-card__title-row'>
               <h3 className='assessment-card__title'>{assessment.title}</h3>
               {assessment.hasGuide ? (
-                <img src={GuideIcon} className='assessment-card__guide-icon' alt='guide-icon' />
+                <>
+                  <img src={GuideIcon} className='assessment-card__guide-icon' alt='' aria-hidden='true' />
+                  <span className='sr-only'>Includes guide</span>
+                </>
               ) : null}
             </div>
           </div>
         <div className='assessment-card__meta-block'>
           <div className='assessment-card__scheduled'>
-            <img src={CalendarIcon} alt='calender' />
+            <img src={CalendarIcon} alt='' aria-hidden='true' />
             <span className='assessment-card__scheduled-text'>
               {assessment.scheduledText}
             </span>
@@ -79,7 +82,7 @@ export function AssessmentCard({ assessment }: AssessmentCardProps) {
             }`}
             aria-label={`${assessment.monitorCount} monitoring insights`}
           >
-            <img src={SparkIcon} alt='spark' />
+            <img src={SparkIcon} alt='' aria-hidden='true' />
             <span className='assessment-card__insights-count'>
               {assessment.monitorCount}
             </span>
